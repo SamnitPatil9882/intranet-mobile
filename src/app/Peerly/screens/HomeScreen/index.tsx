@@ -172,19 +172,6 @@ const HomeScreen = () => {
     profileDetails?.last_name || ''
   }`;
 
-  const userBadge = useMemo(() => {
-    if (profileDetails?.badge) {
-      const badge = profileDetails.badge.toLowerCase();
-      const BadgeIcon = userBadgeProperty[badge as BadgeType];
-      return (
-        <View style={styles.userBadgePosition}>
-          <BadgeIcon width={14} height={14} />
-        </View>
-      );
-    } else {
-      <View>{null}</View>;
-    }
-  }, [profileDetails?.badge]);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -222,7 +209,6 @@ const HomeScreen = () => {
                     <InitialsAvatar name={userName} size={37} />
                   </View>
                 )}
-                {userBadge}
               </View>
             )}
           </Pressable>
